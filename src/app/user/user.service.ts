@@ -22,6 +22,18 @@ export class UserService {
     return this.http.post<any>(`${this.baseUrl}/login`, data, httpsOptions);
   }
 
+  loggedIn(): boolean {
+    return !!localStorage.getItem("auth-token")
+  }
+
+  getToken() {
+    return localStorage.getItem("auth-token");
+  }
+
+  logout() {
+    return localStorage.removeItem("auth-token")
+  }
+
   getUsers(): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}`);
   }

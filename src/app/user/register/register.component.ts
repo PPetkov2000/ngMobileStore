@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.userService.registerUser(form.value).subscribe(response => {
       console.log(response);
+      localStorage.setItem("auth-token", response.token);
       this.router.navigate(["/home"]);
     });
 
