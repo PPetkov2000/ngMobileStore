@@ -1,0 +1,13 @@
+<div class="product-card">
+  <div>
+    <a [routerLink]="['/product', product._id]">
+      <img mat-card-image src="{{ product.imageUrl }}" />
+    </a>
+  </div>
+  <h3>{{ product.name }}</h3>
+  <p>
+    {{ product.SIM }}, {{ product.memory }} GB, {{ product.RAM }} RAM,
+    {{ product.color }}
+  </p>
+  <h3>${{ product.price }}</h3>
+</div>

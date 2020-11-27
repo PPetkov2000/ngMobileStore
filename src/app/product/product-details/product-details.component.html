@@ -1,0 +1,35 @@
+<div class="product-details-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div>
+        <img src="/assets/samsung-galaxy-j6.PNG" alt="image" />
+      </div>
+    </div>
+    <div class="col-md-5">
+      <h1 *ngIf="product">{{ product.name }}</h1>
+      <div *ngIf="product">
+        <p><strong>OS:</strong> {{ product.OS }}</p>
+        <p><strong>Memory:</strong> {{ product.memory }}, {{ product.RAM }}</p>
+        <p><strong>SIM:</strong> {{ product.SIM }}</p>
+        <p><strong>Network:</strong> {{ product.network }}</p>
+        <p><strong>Size:</strong> {{ product.size }} inches</p>
+        <p><strong>Weight:</strong> {{ product.weight }} g</p>
+        <p><strong>Color:</strong> {{ product.color }}</p>
+        <p><strong>Release date:</strong> {{ product.releaseDate }}</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="product-order-container">
+        <h2 *ngIf="product">Price: ${{ product.price }}</h2>
+        <p class="free-delivery">free delivery</p>
+        <div>
+          <button class="button add-to-cart">
+            <i className="fa fa-cart-plus btn-icon" aria-hidden="true"></i>add
+            to cart
+          </button>
+          <button class="button add-to-favourites">add to favourites</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.navbar-brand img {
+  height: 50px;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  font-family: var(--primary-font-family);
+}
+
+.link-active {
+  color: var(--primary-color) !important;
+}

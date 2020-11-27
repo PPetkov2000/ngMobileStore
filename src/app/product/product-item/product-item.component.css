@@ -1,0 +1,15 @@
+.product-card {
+  border: 1px solid gray;
+}
+
+h3 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+img {
+  width: 85%;
+  height: 200px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}

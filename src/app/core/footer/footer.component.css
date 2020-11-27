@@ -1,0 +1,14 @@
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #000;
+  color: #fff;
+}
+
+h4 {
+  margin: 0;
+}

@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://bg.allfont.net/allfont.css?fonts=casper-comics-solid");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@800&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  margin-top: 76px; /* because of the navbar */
+}
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Inter", sans-serif;
+} */
+
+:root {
+  --primary-color: #e6ad11;
+  --primary-color-hover: #ce9907;
+  --primary-box-shadow-container-color: rgb(252, 237, 237);
+  --primary-box-shadow: 0px 1px 8px 2px #888888;
+  --primary-font-family: "Inter", sans-serif;
+  --secondary-font-family: "Casper Comics Solid", arial;
+}

@@ -1,0 +1,30 @@
+main {
+  width: 100%;
+  margin: auto;
+  margin-top: 5rem;
+}
+
+.featured-products {
+  background-color: var(--primary-box-shadow-container-color);
+  box-shadow: var(--primary-box-shadow);
+  text-align: center;
+}
+
+.title {
+  background-color: var(--primary-color);
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0;
+  text-align: left;
+  font-weight: bold;
+  font-family: var(--primary-font-family);
+}
+
+.featured-products > div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.featured-products > div > app-product-item {
+  width: 25%;
+}
