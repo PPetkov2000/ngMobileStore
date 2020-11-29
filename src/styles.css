@@ -28,6 +28,7 @@ h6 {
 :root {
   --primary-color: #e6ad11;
   --primary-color-hover: #ce9907;
+  --primary-title-color: #df500e;
   --primary-box-shadow-container-color: rgb(252, 237, 237);
   --primary-box-shadow: 0px 1px 8px 2px #888888;
   --primary-font-family: "Inter", sans-serif;
