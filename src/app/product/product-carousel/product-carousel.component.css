@@ -1,0 +1,31 @@
+.product-carousel {
+  height: 70vh;
+}
+
+::ng-deep .carousel-inner {
+  height: 90%;
+}
+
+::ng-deep .carousel-item {
+  height: 100%;
+}
+
+::ng-deep .product-img-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+::ng-deep .product-carousel-img {
+  height: 100%;
+}
+
+h3 {
+  background-color: #000;
+  opacity: 0.7;
+  width: 60%;
+  margin: auto;
+}
