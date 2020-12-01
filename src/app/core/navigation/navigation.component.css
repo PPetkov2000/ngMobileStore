@@ -2,6 +2,11 @@
   height: 50px;
 }
 
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
 .nav-link {
   font-size: 1.2rem;
   font-family: var(--primary-font-family);
@@ -9,4 +14,18 @@
 
 .link-active {
   color: var(--primary-color) !important;
+}
+
+.logout {
+  cursor: pointer;
+}
+
+.cart-icon {
+  color: var(--primary-color);
+  font-size: 1.6rem;
+}
+
+.badge {
+  font-size: 0.7rem;
+  border-radius: 50%;
 }
