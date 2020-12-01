@@ -15,28 +15,50 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <span class="spacer mr-auto"> </span>
-    <ul class="navbar-nav">
+    <ul class="navbar-nav navigation">
       <li class="nav-item">
         <!-- [routerLinkActiveOptions]="{ exact: true }" -->
         <a class="nav-link" routerLink="/home" routerLinkActive="link-active"
           >Home</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.loggedIn()">
         <a
           class="nav-link"
-          routerLink="/user/register"
+          routerLink="/auth/register"
           routerLinkActive="link-active"
           >Register</a
         >
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="!authService.loggedIn()">
         <a
           class="nav-link"
-          routerLink="/user/login"
+          routerLink="/auth/login"
           routerLinkActive="link-active"
           >Login</a
         >
+      </li>
+      <li class="nav-item" *ngIf="authService.loggedIn()">
+        <a
+          class="nav-link"
+          routerLink="/user/profile"
+          routerLinkActive="link-active"
+          >Profile</a
+        >
+      </li>
+      <li class="nav-item" *ngIf="authService.loggedIn()">
+        <a class="nav-link logout" (click)="logoutHandler()">Logout</a>
+      </li>
+      <li class="nav-item" *ngIf="authService.loggedIn()">
+        <a class="nav-link" routerLink="/cart">
+          <i class="fa fa-shopping-cart cart-icon" aria-hidden="true"
+            ><span
+              class="badge badge-danger"
+              *ngIf="getCartItems().length > 0"
+              >{{ getCartItems().length }}</span
+            ></i
+          >
+        </a>
       </li>
     </ul>
   </div>
