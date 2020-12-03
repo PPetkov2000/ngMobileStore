@@ -1,21 +1,17 @@
-import { IReview } from './review';
-
 export interface IProduct {
+  _id: string;
   name: string;
+  images: string[];
   brand: string;
-  imageUrl: string;
-  OS: string;
-  memory: number;
-  RAM: number;
-  network: string;
-  SIM: string;
   price: number;
-  size: number;
-  weight: number;
-  color: string;
-  releaseDate: string;
-  reviews: [IReview];
-  rating: number;
+  cpu: string;
+  camera: string;
+  size: string;
+  weight: string;
+  display: string;
+  battery: string;
+  memory: string;
+  description: string;
   countInStock: number;
-  creator: string;
+  quantity?: number;
 }
