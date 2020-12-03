@@ -12,6 +12,7 @@ import { AuthModule } from './auth/auth.module';
 import { TokenInterceptorService } from './auth/token-interceptor.service';
 import { UserModule } from './user/user.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AuthModule,
     ProductModule,
     UserModule,
+    CartModule,
     NgbModule
   ],
   providers: [
@@ -39,3 +41,4 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
