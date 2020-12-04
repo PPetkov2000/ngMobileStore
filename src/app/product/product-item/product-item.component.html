@@ -1,13 +1,12 @@
 <div class="product-card">
   <div>
     <a [routerLink]="['/product', product._id]">
-      <img mat-card-image src="{{ product.imageUrl }}" />
+      <img src="{{ product.images[0] }}" alt="{{ product.name }}" />
     </a>
   </div>
-  <h3>{{ product.name }}</h3>
-  <p>
-    {{ product.SIM }}, {{ product.memory }} GB, {{ product.RAM }} RAM,
-    {{ product.color }}
-  </p>
-  <h3>${{ product.price }}</h3>
+  <a [routerLink]="['/product', product._id]"
+    ><h5>{{ product.name }}</h5></a
+  >
+  <p>{{ product.memory }}, {{ product.battery }}</p>
+  <h6 class="product-price">${{ product.price }}</h6>
 </div>
