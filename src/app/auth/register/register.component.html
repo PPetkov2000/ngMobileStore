@@ -1,0 +1,83 @@
+<div class="register-container">
+  <h2>Sign Up</h2>
+  <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        placeholder="Username..."
+        name="username"
+        #username="ngModel"
+        ngModel
+        required
+      />
+      <p
+        class="text-danger m-1"
+        [class.d-none]="username.valid || username.untouched"
+      >
+        Username is required
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        placeholder="Email..."
+        name="email"
+        #email="ngModel"
+        ngModel
+        required
+      />
+      <p
+        class="text-danger m-1"
+        [class.d-none]="email.valid || email.untouched"
+      >
+        Email is required
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        placeholder="Password..."
+        name="password"
+        #password="ngModel"
+        ngModel
+        required
+      />
+      <p
+        class="text-danger m-1"
+        [class.d-none]="password.valid || password.untouched"
+      >
+        Password is required
+      </p>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Confirm password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="confirm-password"
+        placeholder="Confirm password..."
+        name="confirmPassword"
+        #confirmPassword="ngModel"
+        ngModel
+        required
+      />
+      <p
+        class="text-danger m-1"
+        [class.d-none]="confirmPassword.valid || confirmPassword.untouched"
+      >
+        Confirm password is required
+      </p>
+    </div>
+    <button [disabled]="!registerForm.form.valid">Sign up</button>
+    <p>Have an Account? <a routerLink="/auth/login">Login</a></p>
+  </form>
+</div>
