@@ -1,0 +1,178 @@
+<div class="product-edit-container">
+  <h3 class="text-center">Edit Product</h3>
+  <form
+    #editForm="ngForm"
+    (ngSubmit)="editHandler(editForm.value)"
+    *ngIf="product$ | async as product"
+  >
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        placeholder="Enter name"
+        [ngModel]="product.name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="images">Images</label>
+      <input
+        type="text"
+        class="form-control"
+        id="images"
+        name="images"
+        placeholder="Enter images"
+        [ngModel]="product.images"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="brand">Brand</label>
+      <input
+        type="text"
+        class="form-control"
+        id="brand"
+        name="brand"
+        placeholder="Enter brand"
+        [ngModel]="product.brand"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input
+        type="number"
+        class="form-control"
+        id="price"
+        name="price"
+        placeholder="Enter price"
+        [ngModel]="product.price"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="cpu">CPU</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cpu"
+        name="cpu"
+        placeholder="Enter cpu"
+        [ngModel]="product.cpu"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="camera">Camera</label>
+      <input
+        type="text"
+        class="form-control"
+        id="camera"
+        name="camera"
+        placeholder="Enter camera"
+        [ngModel]="product.camera"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="size">Size</label>
+      <input
+        type="text"
+        class="form-control"
+        id="size"
+        name="size"
+        placeholder="Enter size"
+        [ngModel]="product.size"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="weight">Weight</label>
+      <input
+        type="text"
+        class="form-control"
+        id="weight"
+        name="weight"
+        placeholder="Enter weight"
+        [ngModel]="product.weight"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="display">Display</label>
+      <input
+        type="text"
+        class="form-control"
+        id="display"
+        name="display"
+        placeholder="Enter display"
+        [ngModel]="product.display"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="battery">Battery</label>
+      <input
+        type="text"
+        class="form-control"
+        id="battery"
+        name="battery"
+        placeholder="Enter battery"
+        [ngModel]="product.battery"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="memory">Memory</label>
+      <input
+        type="text"
+        class="form-control"
+        id="memory"
+        name="memory"
+        placeholder="Enter memory"
+        [ngModel]="product.memory"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="countInStock">Count In Stock</label>
+      <input
+        type="number"
+        class="form-control"
+        id="countInStock"
+        name="countInStock"
+        placeholder="Enter count"
+        [ngModel]="product.countInStock"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="quantity">Quantity</label>
+      <input
+        type="number"
+        class="form-control"
+        id="quantity"
+        name="quantity"
+        placeholder="Enter quantity"
+        [ngModel]="product.quantity"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea
+        class="form-control"
+        id="description"
+        name="description"
+        rows="4"
+        placeholder="Enter description"
+        [ngModel]="product.description"
+      ></textarea>
+    </div>
+
+    <button>Update</button>
+  </form>
+</div>

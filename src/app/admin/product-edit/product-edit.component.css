@@ -1,0 +1,53 @@
+.product-edit-container {
+  max-width: 720px;
+  margin: 0 auto;
+  margin-top: 8rem;
+  background-color: var(--primary-box-shadow-container-color);
+  box-shadow: var(--primary-box-shadow);
+  padding: 1rem;
+}
+
+input {
+  color: #333;
+}
+
+button {
+  background-color: var(--primary-color);
+  width: 100%;
+  padding: 0.4rem 0;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  border: none;
+  text-transform: uppercase;
+}
+
+button:hover {
+  background-color: var(--primary-color-hover);
+  border: 1px solid black;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .product-edit-container {
+    width: 90%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 1199px) {
+  /* .product-edit-container {
+    width: 90%;
+  } */
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}

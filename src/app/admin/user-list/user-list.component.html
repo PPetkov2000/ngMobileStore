@@ -1,0 +1,40 @@
+<div class="user-list-container">
+  <h3>Users</h3>
+  <p class="message text-danger" *ngIf="message">{{ message }}</p>
+  <table class="table table-striped table-bordered table-hover table-sm">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>USERNAME</th>
+        <th>EMAIL</th>
+        <th>ADMIN</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users$ | async">
+        <td>{{ user._id }}</td>
+        <td>{{ user.username }}</td>
+        <td>
+          <a href="mailto:{{ user.email }}">{{ user.email }}</a>
+        </td>
+        <td class="text-center">
+          <i class="fa fa-check text-success" *ngIf="user.isAdmin"></i>
+          <i class="fa fa-times text-danger" *ngIf="!user.isAdmin"></i>
+        </td>
+        <td>
+          <div class="buttons">
+            <a [routerLink]="['/admin', 'userlist', user._id, 'edit']">
+              <button class="user-edit-btn">
+                <i class="fa fa-edit"></i>
+              </button>
+            </a>
+            <button class="user-delete-btn" (click)="deleteHandler(user._id)">
+              <i class="fa fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
