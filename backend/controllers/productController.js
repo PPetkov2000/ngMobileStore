@@ -13,7 +13,8 @@ const getProducts = async (req, res, next) => {
       .limit(productsPerPage)
       .skip(productsPerPage * (page - 1)); // 8 * (1 - 1) = 0 skipped products on page 1 | 8 * (2 - 1) = 8 skipped products on page 2
 
-    res.json({ products, page, pages: Math.ceil(count / productsPerPage) });
+    res.json(products);
+    // res.json({ products, page, pages: Math.ceil(count / productsPerPage) });
   } catch (error) {
     next(error);
   }
@@ -36,21 +37,19 @@ const getProductById = async (req, res, next) => {
 const createProduct = async (req, res, next) => {
   const product = new Product({
     name: req.body.name,
+    images: req.body.images,
     brand: req.body.brand,
-    imageUrl: req.body.imageUrl,
-    OS: req.body.OS,
-    memory: req.body.memory,
-    RAM: req.body.RAM,
-    network: req.body.network,
-    SIM: req.body.SIM,
     price: req.body.price,
+    cpu: req.body.cpu,
+    camera: req.body.camera,
     size: req.body.size,
     weight: req.body.weight,
-    color: req.body.color,
-    releaseDate: req.body.releaseDate,
+    display: req.body.display,
+    battery: req.body.battery,
+    memory: req.body.memory,
+    description: req.body.description,
     countInStock: req.body.countInStock,
-    creator: req.user._id,
-    reviews: [],
+    quantity: req.body.quantity,
   });
 
   try {
@@ -67,18 +66,19 @@ const updateProduct = async (req, res, next) => {
 
     if (product) {
       product.name = req.body.name;
+      product.images = req.body.images.split(/,\s|,/g);
       product.brand = req.body.brand;
-      product.imageUrl = req.body.imageUrl;
-      product.OS = req.body.OS;
-      product.memory = req.body.memory;
-      product.RAM = req.body.RAM;
-      product.network = req.body.network;
-      product.SIM = req.body.SIM;
       product.price = req.body.price;
+      product.cpu = req.body.cpu;
+      product.camera = req.body.camera;
       product.size = req.body.size;
       product.weight = req.body.weight;
-      product.color = req.body.color;
+      product.display = req.body.display;
+      product.battery = req.body.battery;
+      product.memory = req.body.memory;
+      product.description = req.body.description;
       product.countInStock = req.body.countInStock;
+      product.quantity = req.body.quantity;
 
       const updatedProduct = await product.save();
       res.json(updatedProduct);
