@@ -29,9 +29,27 @@
             <i class="fa fa-cart-plus"></i>
             add to cart
           </button>
-          <button class="button add-to-favourites">
-            <i class="fa fa-heart" aria-hidden="true"></i>add to favourites
+          <button
+            class="button add-to-favourites"
+            (click)="addToFavouritesHandler(product._id)"
+            *ngIf="!isProductInFavourites"
+            [disabled]="loading"
+          >
+            <i class="fa fa-heart-o" aria-hidden="true"></i> add to favourites
           </button>
+          <button
+            class="button remove-from-favourites"
+            (click)="removeFromFavouritesHandler(product._id)"
+            *ngIf="isProductInFavourites"
+            [disabled]="loading"
+          >
+            <i class="fa fa-heart" aria-hidden="true"></i> remove from
+            favourites
+          </button>
+          <p class="message mt-2 text-success" *ngIf="message">{{ message }}</p>
+          <p class="message mt-2 text-danger" *ngIf="errorMessage">
+            {{ errorMessage }}
+          </p>
         </div>
       </div>
     </div>

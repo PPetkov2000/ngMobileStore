@@ -58,6 +58,14 @@ h4 {
   border: 1px solid black;
 }
 
+.remove-from-favourites {
+  background-color: rgb(235, 45, 45);
+}
+
+.remove-from-favourites:hover {
+  background-color: rgb(214, 5, 5);
+}
+
 button i {
   font-size: 1.3rem;
 }
