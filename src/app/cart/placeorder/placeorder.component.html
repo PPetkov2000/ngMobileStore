@@ -1,0 +1,70 @@
+<div class="place-order-container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="place-order-div">
+        <h3>Shipping</h3>
+        <p class="mb-0">
+          Address: {{ shippingAddress.address }}, {{ shippingAddress.city }},
+          {{ shippingAddress.postalCode }}, {{ shippingAddress.country }}
+        </p>
+      </div>
+
+      <div class="place-order-div">
+        <h3>Payment Method</h3>
+        <strong>Method: {{ paymentMethod }}</strong>
+      </div>
+
+      <div class="place-order-div">
+        <h3>Order Items</h3>
+        <p class="message" *ngIf="cartItems.length === 0">Your cart is empty</p>
+        <div class="row place-order-item" *ngFor="let item of cartItems">
+          <div class="col-md-2 col-xs-2 col-sm-2 text-center">
+            <img src="{{ item.images[0] }}" alt="{{ item.name }}" />
+          </div>
+          <div class="col">
+            <a [routerLink]="['/product', item.product]">{{ item.name }}</a>
+          </div>
+          <div class="col-md-5 col-xs-5 col-sm-5">
+            {{ item.quantity }} * {{ item.price }} = ${{
+              item.quantity * item.price
+            }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="place-order-summary-div">
+        <h3 class="text-center">Order Summary</h3>
+        <div class="summary-item">
+          <div>
+            <strong>Items</strong>
+          </div>
+          <div>${{ itemsPrice }}</div>
+        </div>
+
+        <div class="summary-item">
+          <div>
+            <strong>Shipping</strong>
+          </div>
+          <div>${{ shippingPrice }}</div>
+        </div>
+
+        <div class="summary-item">
+          <div>
+            <strong>Tax</strong>
+          </div>
+          <div>${{ taxPrice }}</div>
+        </div>
+
+        <div class="summary-item total-price">
+          <div>
+            <strong>Total</strong>
+          </div>
+          <div>${{ totalPrice }}</div>
+        </div>
+
+        <button (click)="placeOrder()">Place Order</button>
+      </div>
+    </div>
+  </div>
+</div>

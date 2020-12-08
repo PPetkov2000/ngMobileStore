@@ -1,0 +1,30 @@
+<div class="payment-container">
+  <div class="row">
+    <div class="col-md-8 col-xs-12 mx-auto">
+      <h2>Payment Method</h2>
+      <form #paymentForm="ngForm" (ngSubmit)="paymentSubmit(paymentForm.value)">
+        <legend>Select Method</legend>
+        <div class="form-group">
+          <label for="PayPal">PayPal or Credit Card</label>
+          <input
+            type="radio"
+            id="PayPal"
+            name="paymentMethod"
+            value="PayPal"
+            [ngModel]="paymentMethod"
+            checked
+            required
+          />
+          PayPal
+          <p
+            class="message"
+            *ngIf="paymentForm.form.invalid && paymentForm.form.touched"
+          >
+            Please choose a method
+          </p>
+        </div>
+        <button>Continue</button>
+      </form>
+    </div>
+  </div>
+</div>
