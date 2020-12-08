@@ -3,7 +3,7 @@
     <h3 class="title"><i class="fa fa-shopping-bag"></i> featured products</h3>
     <div>
       <app-product-item
-        *ngFor="let product of products"
+        *ngFor="let product of productService.products"
         [product]="product"
       ></app-product-item>
     </div>
