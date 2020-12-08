@@ -10,6 +10,11 @@
 .nav-link {
   font-size: 1.2rem;
   font-family: var(--primary-font-family);
+  color: #222 !important;
+}
+
+.nav-link:hover {
+  color: var(--primary-color) !important;
 }
 
 .link-active {
@@ -28,4 +33,39 @@
 .badge {
   font-size: 0.7rem;
   border-radius: 50%;
+}
+
+.my-dropdown-menu button {
+  color: #222;
+  font-size: 1.1rem;
+}
+
+.my-dropdown-menu button:hover {
+  color: var(--primary-color);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #222;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--primary-color);
+  /* background-color: lightgray; */
+}
+
+.my-dropdown-menu:hover .dropdown-content {
+  display: block;
 }
