@@ -28,7 +28,7 @@ const orderSchema = new mongoose.Schema(
       update_time: { type: String },
       email_address: { type: String },
     },
-    isPaid: { type: Boolean, required: true, default: false },
+    isPaid: { type: Boolean, default: false },
     paidAt: { type: String },
   },
   { timestamps: true }
