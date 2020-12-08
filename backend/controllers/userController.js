@@ -11,7 +11,8 @@ const getUsers = async (req, res, next) => {
       .limit(usersPerPage)
       .skip(usersPerPage * (page - 1)); // 8 * (1 - 1) = 0 skipped users on page 1 | 8 * (2 - 1) = 8 skipped users on page 2
 
-    res.json({ users, page, pages: Math.ceil(count / usersPerPage) });
+    res.json(users);
+    // res.json({ users, page, pages: Math.ceil(count / usersPerPage) });
   } catch (error) {
     next(error);
   }
@@ -156,6 +157,10 @@ const removeFromFavourites = async (req, res, next) => {
     const user = await User.findById(req.user._id);
 
     if (user) {
+      if (!user.favouriteProducts.includes(req.body.productId)) {
+        res.status(400);
+        throw new Error("Product is already removed");
+      }
       user.favouriteProducts = user.favouriteProducts.filter(
         (x) => x._id.toString() !== req.body.productId
       );
