@@ -14,7 +14,24 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
-    <span class="spacer mr-auto"> </span>
+    <form
+      class="form-inline mx-auto"
+      #searchForm="ngForm"
+      (ngSubmit)="searchSubmitHandler(searchForm)"
+    >
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        name="search"
+        placeholder="Search..."
+        aria-label="Search"
+        ngModel
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+    <span class="spacer mr-auto"></span>
     <ul class="navbar-nav navigation">
       <li class="nav-item">
         <!-- [routerLinkActiveOptions]="{ exact: true }" -->
@@ -59,6 +76,17 @@
             ></i
           >
         </a>
+      </li>
+      <li
+        class="nav-item my-dropdown-menu"
+        *ngIf="authService.loggedIn() && authService.currentUser?.isAdmin"
+      >
+        <button class="btn">Admin</button>
+        <div class="dropdown-content">
+          <a routerLink="/admin/userlist">Users</a>
+          <a routerLink="/admin/productlist">Products</a>
+          <a routerLink="/admin/orderlist">Orders</a>
+        </div>
       </li>
     </ul>
   </div>
