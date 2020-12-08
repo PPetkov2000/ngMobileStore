@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-4">
       <h3 class="title">User Profile</h3>
-      <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm)">
+      <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm.value)">
         <div class="form-group">
           <label for="username">Username</label>
           <input
@@ -69,13 +69,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>sa6da7s8f8af9afa79fs</td>
-            <td>2020-11-07</td>
-            <td>$1000.00</td>
-            <td class="text-center">2020-11-07</td>
+          <tr *ngFor="let order of orders$ | async">
+            <td>{{ order._id }}</td>
+            <td>{{ order.createdAt | date }}</td>
+            <td>{{ order.totalPrice | currency }}</td>
+            <td class="text-center" *ngIf="order.isPaid">
+              {{ order.paidAt | date }}
+            </td>
+            <td class="text-center" *ngIf="!order.isPaid">
+              <i class="fa fa-times text-danger"></i>
+            </td>
             <td class="text-center">
-              <button>Details</button>
+              <a [routerLink]="['/order', order._id]">Details</a>
             </td>
           </tr>
         </tbody>

@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { OrderService } from 'src/app/order/order.service';
+import { IOrder } from 'src/app/shared/interfaces/order';
 import { IUser } from 'src/app/shared/interfaces/user';
 import { UserService } from '../user.service';
 
@@ -13,16 +15,17 @@ import { UserService } from '../user.service';
 export class ProfileComponent implements OnInit {
 
   user: IUser;
+  orders$: Observable<IOrder[]>;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private orderService: OrderService, private router: Router) { }
 
   ngOnInit(): void {
     this.userService.getUserById("profile")
       .subscribe(
-        response => {
-          console.log(response);
+        (response) => {
           this.user = response;
-        }, error => {
+        },
+        (error) => {
           if(error instanceof HttpErrorResponse) {
             if(error.status === 401) {
               this.router.navigate(["/auth/login"]);
@@ -30,15 +33,15 @@ export class ProfileComponent implements OnInit {
           }
         }
       );
+    this.orders$ = this.orderService.listMyOrders();
   }
 
-  onSubmit(form: NgForm) {
-    this.userService.updateUserProfile(form.value).subscribe(response => {
-      console.log(response);
+  onSubmit(formData: IUser) {
+    this.userService.updateUserProfile(formData).subscribe((response) => {
+      this.user = response;
     }, error => {
       console.log(error);
     });
   }
-
 
 }
