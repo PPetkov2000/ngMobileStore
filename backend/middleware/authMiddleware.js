@@ -16,13 +16,15 @@ const isAuth = async (req, res, next) => {
       next();
     } catch (error) {
       res.status(401);
-      throw new Error("Invalid token");
+      res.json({ message: "Invalid token" });
+      // throw new Error("Invalid token");
     }
   }
 
   if (!token) {
     res.status(401);
-    throw new Error("No token");
+    res.json({ message: "No token" });
+    // throw new Error("No token");
   }
 };
 
