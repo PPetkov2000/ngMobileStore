@@ -1,0 +1,94 @@
+<div class="order-container" *ngIf="order">
+  <h2 class="mb-3">
+    <i class="fa fa-id-badge" aria-hidden="true"></i> Order: {{ order._id }}
+  </h2>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="order-item-div">
+        <h3>Shipping</h3>
+        <p class="mb-1">
+          <strong>Username: </strong>
+          {{ order.creator.username }}
+        </p>
+        <p class="mb-1">
+          <strong>Email: </strong>
+          {{ order.creator.email }}
+        </p>
+        <p class="mb-1">
+          <strong>Address: </strong>
+          {{ order.shippingAddress.address }}, {{ order.shippingAddress.city }},
+          {{ order.shippingAddress.postalCode }},
+          {{ order.shippingAddress.country }}
+        </p>
+      </div>
+      <div class="order-item-div">
+        <h3>Payment Method</h3>
+        <p>
+          <strong>Method: </strong>
+          {{ order.paymentMethod }}
+        </p>
+        <p class="message text-success" *ngIf="order.isPaid">
+          <i class="fa fa-check" aria-hidden="true"></i> Paid on
+          {{ order.paidAt | date }}
+        </p>
+        <p class="message text-danger" *ngIf="!order.isPaid">
+          <i class="fa fa-close" aria-hidden="true"></i> Not Paid
+        </p>
+      </div>
+      <div class="order-item-div">
+        <h3>Order Items</h3>
+        <p class="message" *ngIf="order.orderItems.length === 0">
+          Your cart is empty
+        </p>
+        <div class="row order-item" *ngFor="let item of order.orderItems">
+          <div class="col-md-2 col-xs-2 col-sm-2 text-center">
+            <img src="{{ item.imageUrl }}" alt="{{ item.name }}" />
+          </div>
+          <div class="col">
+            <a [routerLink]="['/product', item.product]">{{ item.name }}</a>
+          </div>
+          <div class="col">
+            <p class="mb-0">
+              {{ item.quantity }} * {{ item.price }} = $
+              {{ item.quantity * item.price }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="order-summary-div">
+        <h3 class="text-center">Order Summary</h3>
+        <div class="summary-item">
+          <div>
+            <strong>Items</strong>
+          </div>
+          <div>{{ itemsPrice | currency }}</div>
+        </div>
+
+        <div class="summary-item">
+          <div>
+            <strong>Shipping</strong>
+          </div>
+          <div>{{ order.shippingPrice | currency }}</div>
+        </div>
+
+        <div class="summary-item">
+          <div>
+            <strong>Tax</strong>
+          </div>
+          <div>{{ order.taxPrice | currency }}</div>
+        </div>
+
+        <div class="summary-item total-price">
+          <div>
+            <strong>Total</strong>
+          </div>
+          <div>{{ order.totalPrice | currency }}</div>
+        </div>
+
+        <button>Pay Order</button>
+      </div>
+    </div>
+  </div>
+</div>
