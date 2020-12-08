@@ -34,3 +34,11 @@ h6 {
   --primary-font-family: "Inter", sans-serif;
   --secondary-font-family: "Casper Comics Solid", arial;
 }
+
+a:hover {
+  text-decoration: none;
+}
+
+.message {
+  color: rgb(70, 70, 248);
+}
