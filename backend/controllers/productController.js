@@ -13,8 +13,7 @@ const getProducts = async (req, res, next) => {
       .limit(productsPerPage)
       .skip(productsPerPage * (page - 1)); // 8 * (1 - 1) = 0 skipped products on page 1 | 8 * (2 - 1) = 8 skipped products on page 2
 
-    res.json(products);
-    // res.json({ products, page, pages: Math.ceil(count / productsPerPage) });
+    res.json({ products, page, pages: Math.ceil(count / productsPerPage) });
   } catch (error) {
     next(error);
   }
