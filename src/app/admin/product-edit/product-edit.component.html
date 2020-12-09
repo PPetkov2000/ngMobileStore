@@ -12,8 +12,11 @@
         class="form-control"
         id="name"
         name="name"
+        #name="ngModel"
+        [class.invalid]="name.invalid && name.touched"
         placeholder="Enter name"
         [ngModel]="product.name"
+        required
       />
     </div>
 
@@ -24,8 +27,11 @@
         class="form-control"
         id="images"
         name="images"
+        #images="ngModel"
+        [class.invalid]="images.invalid && images.touched"
         placeholder="Enter images"
         [ngModel]="product.images"
+        required
       />
     </div>
 
@@ -36,8 +42,11 @@
         class="form-control"
         id="brand"
         name="brand"
+        #brand="ngModel"
+        [class.invalid]="brand.invalid && brand.touched"
         placeholder="Enter brand"
         [ngModel]="product.brand"
+        required
       />
     </div>
 
@@ -48,8 +57,11 @@
         class="form-control"
         id="price"
         name="price"
+        #price="ngModel"
+        [class.invalid]="price.invalid && price.touched"
         placeholder="Enter price"
         [ngModel]="product.price"
+        required
       />
     </div>
 
@@ -60,8 +72,11 @@
         class="form-control"
         id="cpu"
         name="cpu"
+        #cpu="ngModel"
+        [class.invalid]="cpu.invalid && cpu.touched"
         placeholder="Enter cpu"
         [ngModel]="product.cpu"
+        required
       />
     </div>
 
@@ -72,8 +87,11 @@
         class="form-control"
         id="camera"
         name="camera"
+        #camera="ngModel"
+        [class.invalid]="camera.invalid && camera.touched"
         placeholder="Enter camera"
         [ngModel]="product.camera"
+        required
       />
     </div>
 
@@ -84,8 +102,11 @@
         class="form-control"
         id="size"
         name="size"
+        #size="ngModel"
+        [class.invalid]="size.invalid && size.touched"
         placeholder="Enter size"
         [ngModel]="product.size"
+        required
       />
     </div>
 
@@ -96,8 +117,11 @@
         class="form-control"
         id="weight"
         name="weight"
+        #weight="ngModel"
+        [class.invalid]="weight.invalid && weight.touched"
         placeholder="Enter weight"
         [ngModel]="product.weight"
+        required
       />
     </div>
 
@@ -108,8 +132,11 @@
         class="form-control"
         id="display"
         name="display"
+        #display="ngModel"
+        [class.invalid]="display.invalid && display.touched"
         placeholder="Enter display"
         [ngModel]="product.display"
+        required
       />
     </div>
 
@@ -120,8 +147,11 @@
         class="form-control"
         id="battery"
         name="battery"
+        #battery="ngModel"
+        [class.invalid]="battery.invalid && battery.touched"
         placeholder="Enter battery"
         [ngModel]="product.battery"
+        required
       />
     </div>
 
@@ -132,8 +162,11 @@
         class="form-control"
         id="memory"
         name="memory"
+        #memory="ngModel"
+        [class.invalid]="memory.invalid && memory.touched"
         placeholder="Enter memory"
         [ngModel]="product.memory"
+        required
       />
     </div>
 
@@ -144,8 +177,11 @@
         class="form-control"
         id="countInStock"
         name="countInStock"
+        #countInStock="ngModel"
+        [class.invalid]="countInStock.invalid && countInStock.touched"
         placeholder="Enter count"
         [ngModel]="product.countInStock"
+        required
       />
     </div>
 
@@ -156,8 +192,11 @@
         class="form-control"
         id="quantity"
         name="quantity"
+        #quantity="ngModel"
+        [class.invalid]="quantity.invalid && quantity.touched"
         placeholder="Enter quantity"
         [ngModel]="product.quantity"
+        required
       />
     </div>
 
@@ -168,11 +207,14 @@
         id="description"
         name="description"
         rows="4"
+        #description="ngModel"
+        [class.invalid]="description.invalid && description.touched"
         placeholder="Enter description"
         [ngModel]="product.description"
+        required
       ></textarea>
     </div>
 
-    <button>Update</button>
+    <button [disabled]="editForm.form.invalid">Update</button>
   </form>
 </div>
