@@ -12,8 +12,11 @@
         class="form-control"
         id="username"
         name="username"
+        #name="ngModel"
+        [class.invalid]="name.invalid && name.touched"
         placeholder="Enter username"
         [ngModel]="user.username"
+        required
       />
     </div>
 
@@ -24,8 +27,11 @@
         class="form-control"
         id="email"
         name="email"
+        #email="ngModel"
+        [class.invalid]="email.invalid && email.touched"
         placeholder="Enter email"
         [ngModel]="user.email"
+        required
       />
     </div>
 
@@ -40,6 +46,6 @@
       />
     </div>
 
-    <button>Update</button>
+    <button [disabled]="editForm.form.invalid">Update</button>
   </form>
 </div>
