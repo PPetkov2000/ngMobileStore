@@ -1,0 +1,12 @@
+<nav class="py-3">
+  <ul class="pagination justify-content-center mb-0">
+    <li
+      class="page-item"
+      *ngFor="let count of [].constructor(pages); let i = index"
+      [class.active]="i + 1 === page"
+      (click)="goToPage(i + 1)"
+    >
+      <a class="page-link" routerLink="/home">{{ i + 1 }}</a>
+    </li>
+  </ul>
+</nav>
