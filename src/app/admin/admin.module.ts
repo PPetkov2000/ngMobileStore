@@ -8,6 +8,7 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { FormsModule } from '@angular/forms';
+import { PaginationModule } from '../pagination/pagination.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     AdminRoutingModule,
-    FormsModule
+    FormsModule,
+    PaginationModule
   ]
 })
 export class AdminModule { }
