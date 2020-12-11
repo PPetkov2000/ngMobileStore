@@ -7,19 +7,23 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { ProductCarouselComponent } from './product-carousel/product-carousel.component';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartModule } from '../cart/cart.module';
+import { PaginationModule } from '../pagination/pagination.module';
+import { ProductReviewComponent } from './product-review/product-review.component';
 
 @NgModule({
   declarations: [
     ProductListComponent,
     ProductItemComponent,
     ProductDetailsComponent,
-    ProductCarouselComponent
+    ProductCarouselComponent,
+    ProductReviewComponent
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
     NgbCarouselModule,
-    CartModule
+    CartModule,
+    PaginationModule
   ],
   exports: [
     ProductListComponent,
