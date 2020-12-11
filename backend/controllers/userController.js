@@ -11,8 +11,7 @@ const getUsers = async (req, res, next) => {
       .limit(usersPerPage)
       .skip(usersPerPage * (page - 1)); // 8 * (1 - 1) = 0 skipped users on page 1 | 8 * (2 - 1) = 8 skipped users on page 2
 
-    res.json(users);
-    // res.json({ users, page, pages: Math.ceil(count / usersPerPage) });
+    res.json({ users, page, pages: Math.ceil(count / usersPerPage) });
   } catch (error) {
     next(error);
   }
@@ -101,7 +100,9 @@ const getUserProfile = async (req, res, next) => {
 
 const updateUserProfile = async (req, res, next) => {
   try {
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).populate(
+      "favouriteProducts"
+    );
 
     if (user) {
       user.email = req.body.email || user.email;
@@ -177,14 +178,19 @@ const removeFromFavourites = async (req, res, next) => {
 };
 
 const registerUser = async (req, res, next) => {
-  const { email, username, password } = req.body;
+  const { email, username, password, confirmPassword } = req.body;
 
   try {
     const userExists = await User.findOne({ email });
 
+    if (password !== confirmPassword) {
+      res.status(400);
+      throw new Error("Passwords do not match");
+    }
+
     if (userExists) {
       res.status(400);
-      throw new Error("User already exists");
+      throw new Error("Email is already taken");
     }
 
     const user = await User.create({ email, username, password });
