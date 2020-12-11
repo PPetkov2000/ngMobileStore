@@ -1,0 +1,41 @@
+.product-review-container {
+  background-color: var(--primary-box-shadow-container-color);
+  box-shadow: var(--primary-box-shadow);
+  padding: 1rem;
+  margin-top: 5rem;
+}
+
+.product-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+  font-size: 1.1rem;
+}
+
+.delete-btn {
+  background-color: transparent;
+  color: red;
+  margin-right: 0.5rem;
+  border: none;
+}
+
+form label {
+  font-size: 1.2rem;
+}
+
+.review-btn {
+  background-color: var(--primary-color);
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.4rem 0;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  text-transform: uppercase;
+}
+
+.review-btn:hover {
+  background-color: var(--primary-color-hover);
+  border: 1px solid black;
+}
