@@ -13,6 +13,7 @@ const getProducts = async (req, res, next) => {
       .limit(productsPerPage)
       .skip(productsPerPage * (page - 1)); // 8 * (1 - 1) = 0 skipped products on page 1 | 8 * (2 - 1) = 8 skipped products on page 2
 
+    // res.json(products);
     res.json({ products, page, pages: Math.ceil(count / productsPerPage) });
   } catch (error) {
     next(error);
@@ -65,7 +66,7 @@ const updateProduct = async (req, res, next) => {
 
     if (product) {
       product.name = req.body.name;
-      product.images = req.body.images.split(/,\s|,/g);
+      product.images = req.body.images.toString().split(/,\s|,/g);
       product.brand = req.body.brand;
       product.price = req.body.price;
       product.cpu = req.body.cpu;
@@ -140,8 +141,10 @@ const createProductReview = async (req, res, next) => {
         product.reviews.reduce((acc, curr) => acc + curr.rating, 0) /
         product.reviews.length;
 
-      await product.save();
-      res.status(201).json({ message: "Review added" });
+      const updatedProduct = await product.save();
+      res
+        .status(201)
+        .json({ product: updatedProduct, message: "Review added" });
     } else {
       res.status(404);
       throw new Error("Product not Found");
