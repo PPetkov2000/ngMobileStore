@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
 import { IProduct } from '../shared/interfaces/product';
-import { tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
+import { IReview } from '../shared/interfaces/review';
 
 @Injectable({
   providedIn: 'root'
@@ -10,14 +11,18 @@ import { tap } from 'rxjs/operators';
 export class ProductService {
 
   products: IProduct[];
+  topProducts: IProduct[];
   baseUrl: string = "http://localhost:5000/api/products";
  
   constructor(private http: HttpClient) { }
 
-  getProducts(keyword = "", pageNumber = ""): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${this.baseUrl}?keyword=${keyword}&pageNumber=${pageNumber}`)
+  getProducts(keyword = "", pageNumber = ""): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}?keyword=${keyword}&pageNumber=${pageNumber}`)
       .pipe(
-        tap((products) => this.products = products)
+        tap((response) => this.products = response.products),
+        catchError((error: HttpErrorResponse) => {
+          return throwError(error);
+        })
       );
   }
 
@@ -26,7 +31,13 @@ export class ProductService {
   }
 
   getTopProducts(): Observable<IProduct[]> {
-    return this.http.get<IProduct[]>(`${this.baseUrl}/top`);
+    return this.http.get<IProduct[]>(`${this.baseUrl}/top`)
+      .pipe(
+        tap((products) => this.topProducts = products),
+        catchError((error: HttpErrorResponse) => {
+          return throwError(error);
+        })
+      );
   }
 
   updateProduct(product: IProduct): Observable<IProduct> {
@@ -35,6 +46,14 @@ export class ProductService {
 
   deleteProduct(id: string): Observable<Object> {
     return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+
+  createProductReview(productId, review: IReview): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/${productId}/reviews`, review);
+  }
+
+  deleteProductReview(productId: string, reviewId: string): Observable<any> {
+    return this.http.delete<any>(`${this.baseUrl}/${productId}/reviews/${reviewId}`);
   }
 
 }
