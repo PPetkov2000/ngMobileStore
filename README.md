@@ -43,8 +43,8 @@ Public part is visible for the guests without authentication. They have access t
 
 ### Private Part
 Registered users have personal area in the web application accessible after successful login. They have access to user profile, shopping cart page, shipping page, payment method page, placeorder page, order page. 
-In product details page authenticated users can post a review about the product, they can also delete the reviews created by themselves.
-Admin users can delete products and products reviews as well as create products, update products. They can even update and delete other users as well as promoting them to admin user.
+In product details page authenticated users can add and remove products to favourtes, post a review about the product, they can also delete the reviews created by themselves.
+Admin users can delete products and products reviews as well as create products, update products. They can even update and delete other users as well as promoting them to admin.
 
 ## General Requirements
 
@@ -52,6 +52,11 @@ Admin users can delete products and products reviews as well as create products,
 - Node.js
 - Express framework 
 - MongoDB Atlas for database
+
+## About The Project
+
+The project is an online store for mobile devices. Тhe home page shows all the products with basic information about them and a search form to find the product they desire. Тhe product details page shows all product information. Users can register and log in, after which they have access to their profile page. Еach user has their own shopping cart and favorite products section located in their profile. In the profile page each user is also able to edit profile information
+
 
 ## Website
 
