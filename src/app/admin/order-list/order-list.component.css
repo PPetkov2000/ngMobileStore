@@ -4,6 +4,7 @@
   margin: 0 auto;
   margin-top: 8rem;
   font-family: var(--primary-font-family);
+  position: relative;
 }
 
 thead {
@@ -21,6 +22,13 @@ thead {
 .order-details-btn:hover {
   background-color: rgb(63, 63, 240);
   color: #fff;
+}
+
+.app-pagination {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
 
 /* Extra small devices (phones, 600px and down) */
