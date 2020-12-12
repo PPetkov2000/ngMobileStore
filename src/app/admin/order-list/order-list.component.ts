@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 import { OrderService } from 'src/app/order/order.service';
 import { IOrder } from 'src/app/shared/interfaces/order';
 
@@ -8,14 +10,26 @@ import { IOrder } from 'src/app/shared/interfaces/order';
   templateUrl: './order-list.component.html',
   styleUrls: ['./order-list.component.css']
 })
-export class OrderListComponent implements OnInit {
+export class OrderListComponent implements OnInit, OnDestroy {
 
-  orders$: Observable<IOrder[]>;
+  data: { orders: IOrder[], page: number, pages: number };
+  dataSubscription: Subscription;
 
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.orders$ = this.orderService.listOrders();
+    this.dataSubscription = this.route.params.pipe(
+      switchMap((params: Params) => {
+        const pageNumber = params.pageNumber || "1";
+        return this.orderService.listOrders(pageNumber)
+      })
+    ).subscribe((response) => {
+      this.data = response;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.dataSubscription.unsubscribe();
   }
 
 }
