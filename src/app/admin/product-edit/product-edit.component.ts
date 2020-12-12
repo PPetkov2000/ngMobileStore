@@ -28,7 +28,6 @@ export class ProductEditComponent implements OnInit {
 
   editHandler(formData: IProduct): void {
     this.productService.updateProduct({ _id: this.id, ...formData }).subscribe(response => {
-      console.log(response)
       this.router.navigateByUrl("/admin/productlist");
     });
   }
