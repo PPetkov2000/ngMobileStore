@@ -13,7 +13,6 @@ const getProducts = async (req, res, next) => {
       .limit(productsPerPage)
       .skip(productsPerPage * (page - 1)); // 8 * (1 - 1) = 0 skipped products on page 1 | 8 * (2 - 1) = 8 skipped products on page 2
 
-    // res.json(products);
     res.json({ products, page, pages: Math.ceil(count / productsPerPage) });
   } catch (error) {
     next(error);
@@ -142,9 +141,7 @@ const createProductReview = async (req, res, next) => {
         product.reviews.length;
 
       const updatedProduct = await product.save();
-      res
-        .status(201)
-        .json({ product: updatedProduct, message: "Review added" });
+      res.status(201).json({ product: updatedProduct });
     } else {
       res.status(404);
       throw new Error("Product not Found");
@@ -159,9 +156,12 @@ const deleteProductReview = async (req, res, next) => {
     const product = await Product.findById(req.params.id);
 
     if (product) {
-      await product.reviews.id(req.params.reviewId).remove();
+      const deleteReview = await product.reviews
+        .id(req.params.reviewId)
+        .remove();
+      product.rating -= deleteReview.rating;
       const updatedProduct = await product.save();
-      res.json({ product: updatedProduct, message: "Product review removed" });
+      res.json({ product: updatedProduct });
     } else {
       res.status(404);
       throw new Error("Product not Found");
