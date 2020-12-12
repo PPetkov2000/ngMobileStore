@@ -36,6 +36,16 @@ run backend => npm run server
 http://localhost:4200/
 ```
 
+## Application Structure
+
+### Public Part
+Public part is visible for the guests without authentication. They have access to home page, product page, product details page, shopping cart page and user login and register forms.
+
+### Private Part
+Registered users have personal area in the web application accessible after successful login. They have access to user profile, shopping cart page, shipping page, payment method page, placeorder page, order page. 
+In product details page authenticated users can post a review about the product, they can also delete the reviews created by themselves.
+Admin users can delete products and products reviews as well as create products, update products. They can even update and delete other users as well as promoting them to admin user.
+
 ## General Requirements
 
 - Angular for client-side
