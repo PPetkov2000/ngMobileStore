@@ -1,27 +1,46 @@
-# NgMobileStore
+## Table of Contents
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
+* [Installation](#installation)
+* [General Requirements](#general-requirements)
+* [Website](#website)
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Clone the repo
+```sh
+git clone https://github.com/PPetkov2000/ngMobileStore
+```
+2. Install Angular Packages
+```sh
+npm install
+```
+3. Install backend packages
+```sh
+cd backend => npm install
+```
+4. Create .env file in the backend folder and add the following
+```sh
+PORT=5000
+MONGO_URI=your_mongoDB_uri
+JWT_SECRET=your_jwt_secret
+```
+5. Run Application
+```sh
+run frontend => ng serve
+run backend => npm run server
+```
+6. Go to
+```sh
+http://localhost:4200/
+```
 
-## Code scaffolding
+## General Requirements
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular for client-side
+- Node.js
+- Express framework 
+- MongoDB Atlas for database
 
-## Build
+## Website
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![ngMobileStore](https://github.com/PPetkov2000/Mobile-Store/blob/main/app-view2.PNG)
