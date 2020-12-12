@@ -45,7 +45,7 @@
     </tbody>
   </table>
   <app-pagination
-    *ngIf="productService.products"
+    *ngIf="productService.products && pages > 1"
     [page]="page"
     [pages]="pages"
     [isAdmin]="true"
