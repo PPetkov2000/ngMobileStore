@@ -43,7 +43,7 @@ Public part is visible for the guests without authentication. They have access t
 
 ### Private Part
 Registered users have personal area in the web application accessible after successful login. They have access to user profile, shopping cart page, shipping page, payment method page, placeorder page, order page. 
-In product details page authenticated users can add and remove products to favourtes, post a review about the product, they can also delete the reviews created by themselves.
+In product details page authenticated users can add and remove favourite products, post a review about the product, they can also delete the reviews created by themselves.
 Admin users can delete products and products reviews as well as create products, update products. They can even update and delete other users as well as promoting them to admin.
 
 ## General Requirements
