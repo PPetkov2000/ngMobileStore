@@ -8,11 +8,15 @@ import { Router } from '@angular/router';
 })
 export class PaymentComponent implements OnInit {
 
+  shippingAddress = localStorage.getItem("shippingAddress") ? JSON.parse(localStorage.getItem("shippingAddress")) : {};
   paymentMethod: string;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if(!this.shippingAddress.address) {
+      this.router.navigate(["/shipping"]);
+    }
   }
 
   paymentSubmit(formdata: { paymentMethod: string }): void {

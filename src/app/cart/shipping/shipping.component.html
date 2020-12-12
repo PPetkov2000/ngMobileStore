@@ -1,4 +1,5 @@
 <div class="shipping-container">
+  <app-checkout-steps [step1]="true" [step2]="true"></app-checkout-steps>
   <div class="row">
     <div class="col-md-8 col-xs-12 mx-auto">
       <h2>Shipping</h2>
@@ -16,10 +17,15 @@
             id="address"
             class="form-control"
             name="address"
+            #address="ngModel"
+            [class.invalid]="address.invalid && address.touched"
+            [ngModel]="shippingAddress.address"
             placeholder="Enter address"
-            [(ngModel)]="address"
             required
           />
+          <p class="text-danger m-1" *ngIf="address.invalid && address.touched">
+            Address is required
+          </p>
         </div>
 
         <div class="form-group">
@@ -31,10 +37,15 @@
             id="city"
             class="form-control"
             name="city"
+            #city="ngModel"
+            [class.invalid]="city.invalid && city.touched"
+            [ngModel]="shippingAddress.city"
             placeholder="Enter city"
-            [(ngModel)]="city"
             required
           />
+          <p class="text-danger m-1" *ngIf="city.invalid && city.touched">
+            City is required
+          </p>
         </div>
 
         <div class="form-group">
@@ -47,10 +58,18 @@
             id="postalCode"
             class="form-control"
             name="postalCode"
+            #postalCode="ngModel"
+            [class.invalid]="postalCode.invalid && postalCode.touched"
+            [ngModel]="shippingAddress.postalCode"
             placeholder="Enter postal code"
-            [(ngModel)]="postalCode"
             required
           />
+          <p
+            class="text-danger m-1"
+            *ngIf="postalCode.invalid && postalCode.touched"
+          >
+            Postal Code is required
+          </p>
         </div>
 
         <div class="form-group">
@@ -62,10 +81,15 @@
             id="country"
             class="form-control"
             name="country"
+            #country="ngModel"
+            [class.invalid]="country.invalid && country.touched"
+            [ngModel]="shippingAddress.country"
             placeholder="Enter country"
-            [(ngModel)]="country"
             required
           />
+          <p class="text-danger m-1" *ngIf="country.invalid && country.touched">
+            Country is required
+          </p>
         </div>
 
         <button

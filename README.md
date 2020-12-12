@@ -1,63 +1,27 @@
-## Table of Contents
+# NgMobileStore
 
-* [Installation](#installation)
-* [Application Structure](#application-structure)
-* [General Requirements](#general-requirements)
-* [About the Project](#about-the-project)
-* [Website](#website)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
-## Installation
+## Development server
 
-1. Clone the repo
-```sh
-git clone https://github.com/PPetkov2000/ngMobileStore
-```
-2. Install Angular Packages
-```sh
-npm install
-```
-3. Install Backend Packages
-```sh
-cd backend => npm install
-```
-4. Create .env file in the backend folder and add the following
-```sh
-PORT=5000
-MONGO_URI=your_mongoDB_uri
-JWT_SECRET=your_jwt_secret
-```
-5. Run Application
-```sh
-run frontend => ng serve
-run backend => npm run server
-```
-6. Go to
-```sh
-http://localhost:4200/
-```
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Application Structure
+## Code scaffolding
 
-### Public Part
-Public part is visible for the guests without authentication. They have access to home page, product page, product details page, shopping cart page and user login and register forms.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-### Private Part
-Registered users have personal area in the web application accessible after successful login. They have access to user profile, shopping cart page, shipping page, payment method page, placeorder page, order page. 
-In product details page authenticated users can add and remove favourite products, post a review about the product, they can also delete the reviews created by themselves.
-Admin users can delete products and products reviews as well as create products, update products. They can even update and delete other users as well as promoting them to admin.
+## Build
 
-## General Requirements
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-- Angular for client-side
-- Node.js
-- Express framework 
-- MongoDB Atlas for database
+## Running unit tests
 
-## About The Project
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-The project is an online store for mobile devices. Тhe home page shows all the products with basic information about them and a search form to find the product they desire. Тhe product details page shows all product information. Users can register and log in, after which they have access to their profile page. Еach user has their own shopping cart and favorite products section located in their profile. In the profile page each user is also able to edit his profile information.
+## Running end-to-end tests
 
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Website
+## Further help
 
-![ngMobileStore](https://github.com/PPetkov2000/Mobile-Store/blob/main/app-view2.PNG)
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

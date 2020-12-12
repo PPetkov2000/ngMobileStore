@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
 import { IProduct } from 'src/app/shared/interfaces/product';
 import { ProductService } from '../product.service';
 
@@ -10,10 +9,12 @@ import { ProductService } from '../product.service';
 })
 export class ProductListComponent implements OnInit {
 
+  @Input() loading: boolean;
+  @Input() data: { products: IProduct[], page: number, pages: number };
+
   constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getProducts().subscribe();
   }
 
 }

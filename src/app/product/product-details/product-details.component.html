@@ -1,4 +1,16 @@
 <div class="product-details-container">
+  <div
+    class="d-flex justify-content-center align-items-center"
+    *ngIf="!product"
+  >
+    <div
+      class="spinner-border m-5"
+      style="width: 8rem; height: 8rem"
+      role="status"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-3">
       <div>
@@ -7,6 +19,11 @@
     </div>
     <div class="col-md-5">
       <h2 *ngIf="product">{{ product.name }}</h2>
+      <app-product-rating
+        *ngIf="product"
+        [rating]="product.rating"
+        text="Clients reviewed: {{ product.reviews?.length }}"
+      ></app-product-rating>
       <div *ngIf="product">
         <p><strong>Memory:</strong> {{ product.memory }}</p>
         <p><strong>CPU:</strong> {{ product.cpu }}</p>
@@ -18,7 +35,7 @@
         <p><strong>Description:</strong> {{ product.description }} g</p>
       </div>
     </div>
-    <div class="col-md-4">
+    <div class="col-md-4" *ngIf="product">
       <div class="product-order-container">
         <h4 *ngIf="product">Price: ${{ product.price }}</h4>
         <p class="free-delivery">
@@ -29,23 +46,25 @@
             <i class="fa fa-cart-plus"></i>
             add to cart
           </button>
-          <button
-            class="button add-to-favourites"
-            (click)="addToFavouritesHandler(product._id)"
-            *ngIf="!isProductInFavourites"
-            [disabled]="loading"
-          >
-            <i class="fa fa-heart-o" aria-hidden="true"></i> add to favourites
-          </button>
-          <button
-            class="button remove-from-favourites"
-            (click)="removeFromFavouritesHandler(product._id)"
-            *ngIf="isProductInFavourites"
-            [disabled]="loading"
-          >
-            <i class="fa fa-heart" aria-hidden="true"></i> remove from
-            favourites
-          </button>
+          <div *ngIf="authService.loggedIn()">
+            <button
+              class="button add-to-favourites"
+              (click)="addToFavouritesHandler(product._id)"
+              *ngIf="!isProductInFavourites"
+              [disabled]="loadingFavourites"
+            >
+              <i class="fa fa-heart-o" aria-hidden="true"></i> add to favourites
+            </button>
+            <button
+              class="button remove-from-favourites"
+              (click)="removeFromFavouritesHandler(product._id)"
+              *ngIf="isProductInFavourites"
+              [disabled]="loadingFavourites"
+            >
+              <i class="fa fa-heart" aria-hidden="true"></i> remove from
+              favourites
+            </button>
+          </div>
           <p class="message mt-2 text-success" *ngIf="message">{{ message }}</p>
           <p class="message mt-2 text-danger" *ngIf="errorMessage">
             {{ errorMessage }}
@@ -54,4 +73,9 @@
       </div>
     </div>
   </div>
+  <app-product-review
+    [product]="product"
+    [productReviewed]="productReviewed"
+    (ratingChanged)="ratingChangeHandler()"
+  ></app-product-review>
 </div>

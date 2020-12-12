@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { IProduct } from 'src/app/shared/interfaces/product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -9,16 +8,12 @@ import { ProductService } from '../product.service';
 })
 export class ProductCarouselComponent implements OnInit {
 
-  topProducts: IProduct[];
-
-  constructor(private productService: ProductService) { }
+  constructor(public productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getTopProducts().subscribe(response => {
-      this.topProducts = response;
-    }, error => {
-      console.log(error)
-    });
+    if(this.productService.topProducts === undefined) {
+      this.productService.getTopProducts().subscribe();
+    }
   }
 
 }

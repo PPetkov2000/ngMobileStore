@@ -21,7 +21,6 @@ export class PaginationComponent implements OnInit {
   }
 
   goToPage(page: number): void {
-    console.log(page)
     const url = !this.isAdmin 
                   ? this.keyword ? `/search/${this.keyword}/page/${page}`
                   : `${this.paginateStr}/page/${page}` 

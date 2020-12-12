@@ -24,6 +24,10 @@ input {
   font-family: sans-serif;
 }
 
+input.invalid {
+  border-left: 5px solid red;
+}
+
 button {
   background-color: var(--primary-color);
   width: 100%;

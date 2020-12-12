@@ -63,9 +63,59 @@
 
 .dropdown-content a:hover {
   background-color: var(--primary-color);
-  /* background-color: lightgray; */
 }
 
 .my-dropdown-menu:hover .dropdown-content {
   display: block;
+}
+
+.navigation-mobile {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-brand {
+    display: none;
+  }
+
+  form button {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .nav-link {
+    font-size: 1.4rem;
+  }
+
+  .nav-link:hover {
+    background-color: var(--primary-color) !important;
+    color: #222 !important;
+  }
+
+  .link-active {
+    background-color: var(--primary-color) !important;
+    color: #222 !important;
+  }
+
+  .cart-icon {
+    font-size: 2rem;
+  }
+
+  .my-dropdown-menu button {
+    display: none;
+  }
+
+  .dropdown-content {
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-shadow: none;
+    position: relative;
+  }
+
+  .dropdown-content a {
+    text-align: center;
+    font-size: 1.4rem;
+  }
 }

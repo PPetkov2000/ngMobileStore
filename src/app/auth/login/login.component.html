@@ -6,11 +6,12 @@
       <input
         type="text"
         class="form-control"
+        [class.invalid]="email.invalid && email.touched"
         id="email"
         placeholder="Email..."
         name="email"
         #email="ngModel"
-        ngModel
+        [ngModel]="email.value"
         required
       />
       <p
@@ -25,6 +26,7 @@
       <input
         type="password"
         class="form-control"
+        [class.invalid]="password.invalid && password.touched"
         id="password"
         placeholder="Password..."
         name="password"
@@ -40,6 +42,7 @@
       </p>
     </div>
     <button [disabled]="!loginForm.form.valid">Sign in</button>
+    <p class="message text-danger" *ngIf="message">{{ message }}</p>
     <p>New Customer? <a routerLink="/auth/register">Register</a></p>
   </form>
 </div>

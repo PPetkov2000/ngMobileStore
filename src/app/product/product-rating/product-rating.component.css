@@ -1,0 +1,16 @@
+.product-rating-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+i {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+}
+
+.text {
+  font-size: 1.2rem;
+  color: gray;
+  margin-bottom: 0;
+}

@@ -9,6 +9,8 @@ import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { CartModule } from '../cart/cart.module';
 import { PaginationModule } from '../pagination/pagination.module';
 import { ProductReviewComponent } from './product-review/product-review.component';
+import { FormsModule } from '@angular/forms';
+import { ProductRatingComponent } from './product-rating/product-rating.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,13 @@ import { ProductReviewComponent } from './product-review/product-review.componen
     ProductItemComponent,
     ProductDetailsComponent,
     ProductCarouselComponent,
-    ProductReviewComponent
+    ProductReviewComponent,
+    ProductRatingComponent
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
+    FormsModule,
     NgbCarouselModule,
     CartModule,
     PaginationModule
@@ -29,7 +33,9 @@ import { ProductReviewComponent } from './product-review/product-review.componen
     ProductListComponent,
     ProductItemComponent,
     ProductDetailsComponent,
-    ProductCarouselComponent
+    ProductCarouselComponent,
+    ProductReviewComponent,
+    ProductRatingComponent
   ]
 })
 export class ProductModule { }

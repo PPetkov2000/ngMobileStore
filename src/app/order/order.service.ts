@@ -16,8 +16,8 @@ export class OrderService {
     return this.http.post<IOrder>(`${this.baseUrl}/create`, order);
   }
 
-  listOrders(): Observable<IOrder[]> {
-    return this.http.get<IOrder[]>(`${this.baseUrl}`);
+  listOrders(pageNumber = ""): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}?pageNumber=${pageNumber}`);
   }
 
   listMyOrders(): Observable<IOrder[]> {

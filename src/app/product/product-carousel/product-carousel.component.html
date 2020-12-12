@@ -1,8 +1,11 @@
-<ngb-carousel *ngIf="topProducts" class="product-carousel bg-dark">
-  <ng-template ngbSlide *ngFor="let product of topProducts">
+<ngb-carousel
+  *ngIf="productService.topProducts"
+  class="product-carousel bg-dark"
+>
+  <ng-template ngbSlide *ngFor="let product of productService.topProducts">
     <a class="product-img-wrapper" [routerLink]="['/product', product._id]">
       <img
-        src="{{ product.images[0] }}"
+        src="{{ product.images[2] }}"
         alt="{{ product.name }}"
         class="product-carousel-img"
       />

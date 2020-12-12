@@ -5,7 +5,7 @@
 }
 
 h2 {
-  color: var(--primary-color);
+  color: var(--primary-title-color);
 }
 
 form {
@@ -31,4 +31,38 @@ button {
 button:hover {
   background-color: var(--primary-color-hover);
   border: 1px solid black;
+}
+
+input.invalid {
+  border-left: 5px solid red;
+}
+
+.row {
+  margin: 0;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .shipping-container {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 992px) {
+  .shipping-container {
+    width: 90%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
 }

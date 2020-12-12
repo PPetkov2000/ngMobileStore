@@ -5,17 +5,24 @@
   margin-top: 5rem;
 }
 
+.review-wrapper {
+  background-color: rgb(228, 201, 201);
+  border-bottom: 2px solid black;
+  margin-bottom: 1rem;
+}
+
 .product-review-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: lightgray;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .delete-btn {
   background-color: transparent;
   color: red;
+  font-size: 1.3rem;
   margin-right: 0.5rem;
   border: none;
 }
@@ -37,5 +44,10 @@ form label {
 
 .review-btn:hover {
   background-color: var(--primary-color-hover);
-  border: 1px solid black;
+}
+
+.comment {
+  width: 100%;
+  min-height: 100px;
+  margin-bottom: 0;
 }

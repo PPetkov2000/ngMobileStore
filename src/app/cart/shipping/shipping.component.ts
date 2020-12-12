@@ -9,10 +9,6 @@ import { Router } from '@angular/router';
 export class ShippingComponent implements OnInit {
 
   shippingAddress = localStorage.getItem("shippingAddress") ? JSON.parse(localStorage.getItem("shippingAddress")) : {};
-  address: string = this.shippingAddress.address;
-  city: string = this.shippingAddress.city;
-  postalCode: string = this.shippingAddress.postalCode;
-  country: string = this.shippingAddress.country;
 
   constructor(private router: Router) { }
 

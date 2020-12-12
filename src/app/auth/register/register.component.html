@@ -6,6 +6,7 @@
       <input
         type="text"
         class="form-control"
+        [class.invalid]="username.invalid && username.touched"
         id="username"
         placeholder="Username..."
         name="username"
@@ -25,18 +26,25 @@
       <input
         type="text"
         class="form-control"
+        [class.invalid]="(email.invalid && email.touched) || sameEmailMsg"
         id="email"
         placeholder="Email..."
         name="email"
         #email="ngModel"
         ngModel
         required
+        pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
       />
-      <p
-        class="text-danger m-1"
-        [class.d-none]="email.valid || email.untouched"
-      >
-        Email is required
+      <div *ngIf="email.errors && email.invalid && email.touched">
+        <p class="text-danger m-1" *ngIf="email.errors.required">
+          Email is required
+        </p>
+        <p class="text-danger m-1" *ngIf="email.errors.pattern">
+          Email is invalid
+        </p>
+      </div>
+      <p class="text-danger m-1" *ngIf="sameEmailMsg">
+        {{ sameEmailMsg }}
       </p>
     </div>
     <div class="form-group">
@@ -44,6 +52,9 @@
       <input
         type="password"
         class="form-control"
+        [class.invalid]="
+          (password.invalid && password.touched) || diffPasswordsMsg
+        "
         id="password"
         placeholder="Password..."
         name="password"
@@ -63,6 +74,10 @@
       <input
         type="password"
         class="form-control"
+        [class.invalid]="
+          (confirmPassword.invalid && confirmPassword.touched) ||
+          diffPasswordsMsg
+        "
         id="confirm-password"
         placeholder="Confirm password..."
         name="confirmPassword"
@@ -76,8 +91,12 @@
       >
         Confirm password is required
       </p>
+      <p class="text-danger m-1" *ngIf="diffPasswordsMsg">
+        {{ diffPasswordsMsg }}
+      </p>
     </div>
     <button [disabled]="!registerForm.form.valid">Sign up</button>
+    <p class="message text-danger" *ngIf="message">{{ message }}</p>
     <p>Have an Account? <a routerLink="/auth/login">Login</a></p>
   </form>
 </div>

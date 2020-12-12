@@ -6,8 +6,8 @@ import { PlaceorderComponent } from './placeorder/placeorder.component';
 import { ShippingComponent } from './shipping/shipping.component';
 
 const routes: Routes = [
-  { path: "cart", component: CartComponent, canActivate: [AuthGuard] },
-  { path: "cart/:id", component: CartComponent, canActivate: [AuthGuard] },
+  { path: "cart", component: CartComponent },
+  { path: "cart/:id", component: CartComponent },
   { path: "shipping", component: ShippingComponent, canActivate: [AuthGuard] },
   { path: "payment", component: PaymentComponent, canActivate: [AuthGuard] },
   { path: "placeorder", component: PlaceorderComponent, canActivate: [AuthGuard] },

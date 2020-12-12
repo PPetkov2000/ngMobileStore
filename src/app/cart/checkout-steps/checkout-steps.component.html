@@ -1,0 +1,28 @@
+<nav>
+  <ul>
+    <li>
+      <a style="cursor: default" [class.disabled]="!step1">
+        <i class="fa fa-check-square" aria-hidden="true" *ngIf="step1"></i> Sign
+        In
+      </a>
+    </li>
+    <li>
+      <a routerLink="/shipping" [class.disabled]="!step2">
+        <i class="fa fa-check-square" aria-hidden="true" *ngIf="step2"></i>
+        Shipping
+      </a>
+    </li>
+    <li>
+      <a routerLink="/payment" [class.disabled]="!step3">
+        <i class="fa fa-check-square" aria-hidden="true" *ngIf="step3"></i>
+        Payment
+      </a>
+    </li>
+    <li>
+      <a routerLink="/placeorder" [class.disabled]="!step4">
+        <i class="fa fa-check-square" aria-hidden="true" *ngIf="step4"></i>
+        Place Order
+      </a>
+    </li>
+  </ul>
+</nav>

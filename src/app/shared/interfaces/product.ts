@@ -14,4 +14,6 @@ export interface IProduct {
   description: string;
   countInStock: number;
   quantity?: number;
+  rating: number;
+  reviews: [];
 }

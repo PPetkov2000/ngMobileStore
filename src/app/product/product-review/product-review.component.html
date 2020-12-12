@@ -1,25 +1,70 @@
 <div class="product-review-container">
-  <h3>Reviews</h3>
-  <div>
-    <div class="product-review-header">
-      <strong class="px-2">review.name</strong>
-      <button class="delete-btn" (click)="deleteReviewHandler()">
+  <h2 class="text-center">Reviews</h2>
+  <h4 class="text-info text-center mt-2" *ngIf="product?.reviews.length === 0">
+    No reviews yet
+  </h4>
+  <div
+    class="d-flex justify-content-center align-items-center"
+    *ngIf="!product"
+  >
+    <div
+      class="spinner-border m-5"
+      style="width: 8rem; height: 8rem"
+      role="status"
+    >
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div *ngFor="let review of product?.reviews" class="review-wrapper">
+    <div class="product-review-header bg-success text-white">
+      <strong class="px-2">{{ review.name }}</strong>
+      <button
+        class="delete-btn"
+        *ngIf="
+          review.creator === authService.currentUser?._id ||
+          authService.currentUser?.isAdmin
+        "
+        (click)="deleteReviewHandler(review._id)"
+      >
         <i class="fa fa-trash"></i>
       </button>
     </div>
     <div class="px-2">
       <!-- <Rating value={review.rating} /> -->
       <div class="d-flex align-items-center justify-content-between">
-        <p class="mb-1">review.comment</p>
-        <p>review.createdAt | date</p>
+        <p class="comment">{{ review.comment }}</p>
+        <span class="badge badge-dark align-self-end mb-1">{{
+          review.createdAt | date
+        }}</span>
       </div>
     </div>
   </div>
-  <div class="mt-5">
-    <h3>Write a Customer Review</h3>
+  <div>
+    <div
+      class="d-flex justify-content-center align-items-center"
+      *ngIf="loading"
+    >
+      <div
+        class="spinner-border m-5"
+        style="width: 8rem; height: 8rem"
+        role="status"
+      >
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <h5 class="message text-success text-center" *ngIf="successMessage">
+      {{ successMessage }}
+    </h5>
+    <h5 class="message text-danger text-center" *ngIf="errorMessage">
+      {{ errorMessage }}
+    </h5>
+  </div>
+  <div class="mt-5" *ngIf="!productReviewed">
+    <h3 class="text-center">Write a Customer Review</h3>
     <form
       #reviewForm="ngForm"
       (ngSubmit)="createReviewHandler(reviewForm.value)"
+      *ngIf="authService.loggedIn()"
     >
       <div class="form-group">
         <label for="rating">Rating</label>
@@ -27,7 +72,9 @@
           name="rating"
           id="rating"
           class="form-control"
-          [ngModel]="rating"
+          #rating="ngModel"
+          ngModel
+          required
         >
           <option value="">Select...</option>
           <option value="1">1 - Poor</option>
@@ -40,18 +87,23 @@
       <div class="form-group">
         <label for="comment">Comment</label>
         <textarea
-          row="3"
           class="form-control"
           id="comment"
           name="comment"
-          [ngModel]="comment"
+          #comment="ngModel"
+          placeholder="Enter comment..."
+          ngModel
+          required
         ></textarea>
       </div>
-      <p class="message text-success">Review submitted successfully</p>
-      <p class="message text-danger" *ngIf="message">{{ message }}</p>
-      <button class="review-btn" [disabled]="loading">Submit</button>
+      <button
+        class="review-btn"
+        [disabled]="loading || reviewForm.form.invalid || reviewForm.submitted"
+      >
+        Submit
+      </button>
     </form>
-    <h5 class="mt-2">
+    <h5 class="mt-3" *ngIf="!authService.loggedIn()">
       Please <a routerLink="/auth/login">sign in</a> to write a review
     </h5>
   </div>

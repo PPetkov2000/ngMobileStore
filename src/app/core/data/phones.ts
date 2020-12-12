@@ -2,7 +2,7 @@ export const phones = [
   {
     _id: "1",
     name: "Samsung Galaxy J6",
-    images: ["./assets/samsung-galaxy-j6.jpg"],
+    images: ["/assets/samsung-galaxy-j6.png", "/assets/samsung-galaxy-j6(back-side).png", "/assets/samsung-galaxy-j6(carousel).png"],
     brand: "samsung",
     price: 359.99,
     cpu: "1.3GHz Apple A6",
@@ -13,12 +13,14 @@ export const phones = [
     battery: "1480 mAh",
     memory: "32GB, RAM: 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 5
+    countInStock: 5,
+    rating: 0,
+    reviews: []
   },
   {
     _id: "2",
     name: "Samsung Galaxy S10",
-    images: ["/assets/samsung-galaxy-s10.png"],
+    images: ["/assets/samsung-galaxy-s10.png", "/assets/samsung-galaxy-s10(back-side).png", "/assets/samsung-galaxy-s10(carousel).png"],
     brand: "samsung",
     price: 499.99,
     cpu: "1.3GHz Apple A6",
@@ -29,12 +31,14 @@ export const phones = [
     battery: "1480 mAh",
     memory: "64GB, RAM: 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 4
+    countInStock: 4,
+    rating: 0,
+    reviews: []
   },
   {
     _id: "3",
     name: "Samsung Galaxy a71",
-    images: ["/assets/samsung-galaxy-a71.png"],
+    images: ["/assets/samsung-galaxy-a71.png", "/assets/samsung-galaxy-a71(back-side).png", "/assets/samsung-galaxy-a71(carousel).png"],
     brand: "samsung",
     price: 529.99,
     cpu: "1.3GHz Apple A6",
@@ -45,12 +49,14 @@ export const phones = [
     battery: "1480 mAh",
     memory: "64GB, RAM: 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 6
+    countInStock: 6,
+    rating: 0,
+    reviews: []
   },
   {
     _id: "4",
     name: "Samsung Galaxy a51",
-    images: ["/assets/samsung-galaxy-a51.png"],
+    images: ["/assets/samsung-galaxy-a51.png", "/assets/samsung-galaxy-a51(back-side).png", "/assets/samsung-galaxy-a51(carousel).png"],
     brand: "samsung",
     price: 459.99,
     cpu: "1.3GHz Apple A6",
@@ -61,12 +67,14 @@ export const phones = [
     battery: "1480 mAh",
     memory: "64GB, RAM: 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 5
+    countInStock: 5,
+    rating: 0,
+    reviews: []
   },
   {
     _id: "5",
     name: "Huawei p20 PRO",
-    images: ["/assets/huawei-p20.png"],
+    images: ["/assets/huawei-p20.png", "/assets/huawei-p20(back-side).png", "/assets/huawei-p20(carousel).png"],
     brand: "huawei",
     price: 479.99,
     cpu: "1.3GHz Apple A6",
@@ -77,12 +85,14 @@ export const phones = [
     battery: "1480 mAh",
     memory: "64GB, RAM: 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 3
+    countInStock: 3,
+    rating: 0,
+    reviews: []
   },
   {
     _id: "6",
     name: "Huawei p40 LITE",
-    images: ["/assets/huawei-p40-lite.png"],
+    images: ["/assets/huawei-p40-lite.png", "/assets/huawei-p40-lite(back-side).png", "/assets/huawei-p40-lite(carousel).png"],
     brand: "huawei",
     price: 499.99,
     cpu: "1.3GHz Apple A6",
@@ -93,12 +103,14 @@ export const phones = [
     battery: "1480 mAh",
     memory: "64GB, RAM: 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 4
+    countInStock: 4,
+    rating: 0,
+    reviews: []
   },
   {
     _id: "7",
     name: "Lenovo k6 NOTE",
-    images: ["/assets/lenovo-k6-note.png"],
+    images: ["/assets/lenovo-k6-note.png", "/assets/lenovo-k6-note(back-side).png", "/assets/lenovo-k6-note(carousel).png"],
     brand: "lenovo",
     price: 329.99,
     cpu: "1.3GHz Apple A6",
@@ -109,12 +121,14 @@ export const phones = [
     battery: "1480 mAh",
     memory: "32GB, RAM: 2",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 5
+    countInStock: 5,
+    rating: 0,
+    reviews: []
   },
   {
     _id: "8",
     name: "Huawei Y6p",
-    images: ["/assets/huawei-y6p.png"],
+    images: ["/assets/huawei-y6p.png", "/assets/huawei-y6p(back-side).png", "/assets/huawei-y6p(carousel).png"],
     brand: "huawei",
     price: 469.99,
     cpu: "1.3GHz Apple A6",
@@ -125,12 +139,14 @@ export const phones = [
     battery: "1480 mAh",
     memory: "64GB, RAM: 4",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 6
+    countInStock: 6,
+    rating: 0,
+    reviews: []
   },
   {
     _id: "9",
     name: "Huawei Y7",
-    images: ["/assets/huawei-y7.png"],
+    images: ["/assets/huawei-y7.png", "/assets/huawei-y7(back-side).png", "/assets/huawei-y7(carousel).png"],
     brand: "huawei",
     price: 599.99,
     cpu: "1.3GHz Apple A6",
@@ -141,6 +157,8 @@ export const phones = [
     battery: "1480 mAh",
     memory: "64GB, RAM: 8",
     description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!",
-    countInStock: 2
-  },
+    countInStock: 2,
+    rating: 0,
+    reviews: []
+  }
 ];

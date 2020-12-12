@@ -1,11 +1,12 @@
 .cart-container {
   width: 70%;
+  min-height: 457px;
   margin: 0 auto;
   margin-top: 6rem;
 }
 
 .title {
-  color: var(--primary-color);
+  color: var(--primary-title-color);
   margin-bottom: 1rem;
 }
 

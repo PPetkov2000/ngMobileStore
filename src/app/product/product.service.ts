@@ -48,12 +48,12 @@ export class ProductService {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 
-  createProductReview(productId, review: IReview): Observable<any> {
-    return this.http.post<any>(`${this.baseUrl}/${productId}/reviews`, review);
+  createProductReview(productId: string, review: IReview): Observable<IProduct> {
+    return this.http.post<IProduct>(`${this.baseUrl}/${productId}/reviews`, review);
   }
 
-  deleteProductReview(productId: string, reviewId: string): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/${productId}/reviews/${reviewId}`);
+  deleteProductReview(productId: string, reviewId: string): Observable<IProduct> {
+    return this.http.delete<IProduct>(`${this.baseUrl}/${productId}/reviews/${reviewId}`);
   }
 
 }
