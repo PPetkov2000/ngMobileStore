@@ -1,7 +1,9 @@
 ## Table of Contents
 
 * [Installation](#installation)
+* [Application Structure](#application-structure)
 * [General Requirements](#general-requirements)
+* [About the Project](#about-the-project)
 * [Website](#website)
 
 ## Installation
@@ -14,7 +16,7 @@ git clone https://github.com/PPetkov2000/ngMobileStore
 ```sh
 npm install
 ```
-3. Install backend packages
+3. Install Backend Packages
 ```sh
 cd backend => npm install
 ```
