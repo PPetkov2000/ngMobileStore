@@ -25,11 +25,13 @@ const getMyOrders = async (req, res, next) => {
   try {
     const count = await Order.countDocuments({ creator: req.user._id });
     const orders = await Order.find({ creator: req.user._id })
+      .populate("creator")
       .sort({ createdAt: "desc" })
       .limit(ordersPerPage)
       .skip(ordersPerPage * (page - 1)); // 8 * (1 - 1) = 0 skipped orders on page 1 | 8 * (2 - 1) = 8 skipped orders on page 2
 
-    res.json({ orders, page, pages: Math.ceil(count / ordersPerPage) });
+    res.json(orders);
+    // res.json({ orders, page, pages: Math.ceil(count / ordersPerPage) });
   } catch (error) {
     next(error);
   }
