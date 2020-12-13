@@ -96,7 +96,12 @@
           <div>{{ order.totalPrice | currency }}</div>
         </div>
 
-        <button>Pay Order</button>
+        <h4 *ngIf="order.isPaid" class="text-success text-center mt-3 mb-0">
+          {{ paymentMessage }}
+        </h4>
+        <button *ngIf="!order.isPaid" (click)="payOrderHandler()">
+          Pay Order
+        </button>
       </div>
     </div>
   </div>
