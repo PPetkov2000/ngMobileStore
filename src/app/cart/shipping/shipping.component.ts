@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-shipping',
@@ -10,9 +11,12 @@ export class ShippingComponent implements OnInit {
 
   shippingAddress = localStorage.getItem("shippingAddress") ? JSON.parse(localStorage.getItem("shippingAddress")) : {};
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
+    if(this.cartService.cartItems && this.cartService.cartItems.length === 0) {
+      this.router.navigate(["/cart"]);
+    }
   }
 
   shippingSubmit(shippingData: { address: string, city: string, postalCode: string, country: string }): void {
