@@ -124,9 +124,12 @@
       </div>
     </div>
     <div *ngIf="user$ | async as user">
-      <p class="message" *ngIf="user?.favouriteProducts.length === 0">
+      <h5
+        class="message text-center"
+        *ngIf="user?.favouriteProducts.length === 0"
+      >
         No favourites
-      </p>
+      </h5>
       <div class="product" *ngIf="user?.favouriteProducts.length > 0">
         <app-product-item
           *ngFor="let product of user?.favouriteProducts"
