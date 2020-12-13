@@ -27,4 +27,8 @@ export class OrderService {
   listOrderDetails(id: string): Observable<IOrder> {
     return this.http.get<IOrder>(`${this.baseUrl}/${id}`);
   }
+
+  payOrder(id: string, paymentResult: any): Observable<IOrder> {
+    return this.http.put<IOrder>(`${this.baseUrl}/${id}/pay`, paymentResult);
+  }
 }
