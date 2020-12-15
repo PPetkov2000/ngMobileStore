@@ -28,7 +28,7 @@
             <img src="{{ item.images[0] }}" alt="{{ item.name }}" />
           </div>
           <div class="col">
-            <a [routerLink]="['/product', item.product]">{{ item.name }}</a>
+            <a [routerLink]="['/product', item._id]">{{ item.name }}</a>
           </div>
           <div class="col-md-5 col-xs-5 col-sm-5">
             {{ item.quantity }} * {{ item.price }} = ${{
