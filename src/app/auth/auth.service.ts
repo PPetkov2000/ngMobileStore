@@ -39,6 +39,7 @@ export class AuthService {
     localStorage.removeItem("cartItems");
     localStorage.removeItem("shippingAddress");
     localStorage.removeItem("paymentMethod");
+    this.currentUser = null;
     this.cartService.cartItems = [];
     this.router.navigate(["/auth/login"]);
   }
