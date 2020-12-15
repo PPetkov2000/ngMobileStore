@@ -28,8 +28,8 @@ JWT_SECRET=your_jwt_secret
 ```
 5. Run Application
 ```sh
-run frontend => ng serve
-run backend => npm run server
+run frontend: ng serve
+run backend: cd backend => npm run server
 ```
 6. Go to
 ```sh
