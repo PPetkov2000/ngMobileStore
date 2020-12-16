@@ -60,4 +60,4 @@ The project is an online store for mobile devices. Тhe home page shows all the 
 
 ## Website
 
-![ngMobileStore](https://github.com/PPetkov2000/Mobile-Store/blob/main/app-view2.PNG)
+![ngMobileStore](https://github.com/PPetkov2000/ngMobileStore/blob/main/app-view.PNG)
