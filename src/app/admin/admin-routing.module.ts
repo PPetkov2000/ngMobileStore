@@ -9,14 +9,26 @@ import { AuthGuard } from '../auth/auth.guard';
 import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
-  { path: "admin/userlist", component: UserListComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: "admin/userlist/:pageNumber", component: UserListComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: "admin/userlist/:id/edit", component: UserEditComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: "admin/productlist", component: ProductListComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: "admin/productlist/:pageNumber", component: ProductListComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: "admin/productlist/:id/edit", component: ProductEditComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: "admin/orderlist", component: OrderListComponent, canActivate: [AuthGuard, AdminGuard] },
-  { path: "admin/orderlist/:pageNumber", component: OrderListComponent, canActivate: [AuthGuard, AdminGuard] }
+  { path: "", canActivate: [AuthGuard, AdminGuard], children: [
+      { path: "userlist", children: [
+          { path: "", component: UserListComponent },
+          { path: ":pageNumber", component: UserListComponent },
+          { path: ":id/edit", component: UserEditComponent }
+        ]
+      },
+      { path: "productlist", children: [
+          { path: "", component: ProductListComponent },
+          { path: ":pageNumber", component: ProductListComponent },
+          { path: ":id/edit", component: ProductEditComponent }
+        ]
+      },
+      { path: "orderlist", children: [
+          { path: "", component: OrderListComponent },
+          { path: ":pageNumber", component: OrderListComponent }
+        ]
+      }
+    ]
+  }
 ];
 
 export const AdminRoutingModule = RouterModule.forChild(routes);
