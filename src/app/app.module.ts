@@ -14,7 +14,6 @@ import { TokenInterceptorService } from './auth/token-interceptor.service';
 import { UserModule } from './user/user.module';
 import { CartModule } from './cart/cart.module';
 import { OrderModule } from './order/order.module';
-import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { AdminModule } from './admin/admin.module';
     UserModule,
     CartModule,
     OrderModule,
-    AdminModule,
     NgbModule
   ],
   providers: [
