@@ -11,6 +11,7 @@ import { PaginationModule } from '../pagination/pagination.module';
 import { ProductReviewComponent } from './product-review/product-review.component';
 import { FormsModule } from '@angular/forms';
 import { ProductRatingComponent } from './product-rating/product-rating.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ProductRatingComponent } from './product-rating/product-rating.componen
     FormsModule,
     NgbCarouselModule,
     CartModule,
-    PaginationModule
+    PaginationModule,
+    SharedModule
   ],
   exports: [
     ProductListComponent,
