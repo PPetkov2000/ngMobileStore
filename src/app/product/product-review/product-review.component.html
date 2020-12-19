@@ -3,18 +3,7 @@
   <h4 class="text-info text-center mt-2" *ngIf="product?.reviews.length === 0">
     No reviews yet
   </h4>
-  <div
-    class="d-flex justify-content-center align-items-center"
-    *ngIf="!product"
-  >
-    <div
-      class="spinner-border m-5"
-      style="width: 8rem; height: 8rem"
-      role="status"
-    >
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
+  <app-loader [loading]="!product"></app-loader>
   <div *ngFor="let review of product?.reviews" class="review-wrapper">
     <div class="product-review-header bg-success text-white">
       <strong class="px-2">{{ review.name }}</strong>
@@ -40,18 +29,7 @@
     </div>
   </div>
   <div>
-    <div
-      class="d-flex justify-content-center align-items-center"
-      *ngIf="loading"
-    >
-      <div
-        class="spinner-border m-5"
-        style="width: 8rem; height: 8rem"
-        role="status"
-      >
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
+    <app-loader [loading]="loading"></app-loader>
     <h5 class="message text-success text-center" *ngIf="successMessage">
       {{ successMessage }}
     </h5>
