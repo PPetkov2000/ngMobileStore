@@ -9,6 +9,7 @@ import { ProductEditComponent } from './product-edit/product-edit.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
 import { FormsModule } from '@angular/forms';
 import { PaginationModule } from '../pagination/pagination.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PaginationModule } from '../pagination/pagination.module';
     CommonModule,
     AdminRoutingModule,
     FormsModule,
-    PaginationModule
+    PaginationModule,
+    SharedModule
   ]
 })
 export class AdminModule { }
