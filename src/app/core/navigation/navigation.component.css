@@ -37,7 +37,7 @@
 
 .my-dropdown-menu button {
   color: #222;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
 }
 
 .my-dropdown-menu button:hover {
@@ -81,27 +81,17 @@
   form button {
     width: 100%;
   }
+
+  .nav-link {
+    font-size: 1.1rem;
+  }
+
+  .dropdown-content a {
+    font-size: 1.1rem;
+  }
 }
 
-@media only screen and (max-width: 992px) {
-  .nav-link {
-    font-size: 1.4rem;
-  }
-
-  .nav-link:hover {
-    background-color: var(--primary-color) !important;
-    color: #222 !important;
-  }
-
-  .link-active {
-    background-color: var(--primary-color) !important;
-    color: #222 !important;
-  }
-
-  .cart-icon {
-    font-size: 2rem;
-  }
-
+@media only screen and (max-width: 768px) {
   .my-dropdown-menu button {
     display: none;
   }
@@ -116,6 +106,27 @@
 
   .dropdown-content a {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .nav-link:hover {
+    background-color: var(--primary-color) !important;
+    color: #222 !important;
+  }
+
+  .link-active {
+    background-color: var(--primary-color) !important;
+    color: #222 !important;
+  }
+
+  .cart-icon {
+    font-size: 2rem;
+  }
+
+  .searchButton {
+    display: none;
   }
 }
