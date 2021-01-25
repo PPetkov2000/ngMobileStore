@@ -30,7 +30,7 @@ export class ProductReviewComponent implements OnInit, OnDestroy, AfterContentCh
   }
 
   ngAfterContentChecked(): void {
-     if(this.productReviewCreated) {
+    if(this.productReviewCreated) {
       this.productSubscription = this.productService.getProduct(this.product._id).subscribe((newProduct) => {
         this.product = newProduct;
         this.productReviewCreated = false;
