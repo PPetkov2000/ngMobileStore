@@ -29,3 +29,14 @@ h3 {
   width: 60%;
   margin: auto;
 }
+
+@media only screen and (max-width: 768px) {
+  ::ng-deep .product-img-wrapper {
+    width: 77%;
+  }
+
+  h3 {
+    width: 80%;
+    font-size: 1.5rem;
+  }
+}
