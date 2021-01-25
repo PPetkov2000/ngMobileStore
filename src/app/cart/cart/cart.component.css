@@ -72,7 +72,10 @@
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
+  .cart-info-column {
+    margin-bottom: 1.5rem;
+  }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
