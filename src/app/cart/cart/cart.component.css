@@ -26,7 +26,7 @@
 }
 
 .cart-img {
-  width: 60%;
+  width: 40px;
 }
 
 .cart-item-name {
@@ -65,9 +65,19 @@
   border: 1px solid black;
 }
 
-@media only screen and (min-width: 600px) and (max-width: 1199px) {
+@media only screen and (max-width: 1199px) {
   .cart-container {
-    width: 90%;
+    width: 85%;
+  }
+
+  .cart-card {
+    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+  .cart-info-item {
+    font-size: 1rem;
   }
 }
 
