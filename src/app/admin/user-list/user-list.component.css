@@ -1,6 +1,6 @@
 .user-list-container {
   width: 70%;
-  height: 426px;
+  min-height: 426px;
   margin: 0 auto;
   margin-top: 8rem;
   font-family: var(--primary-font-family);
