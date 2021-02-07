@@ -4,9 +4,9 @@
       <img src="{{ product.images[0] }}" alt="{{ product.name }}" />
     </a>
   </div>
-  <a [routerLink]="['/product', product._id]"
-    ><h5>{{ product.name }}</h5></a
-  >
+  <a [routerLink]="['/product', product._id]">
+    <h5>{{ product.name }}</h5>
+  </a>
   <p>{{ product.memory }}, {{ product.battery }}</p>
   <h6 class="product-price">${{ product.price }}</h6>
 </div>
