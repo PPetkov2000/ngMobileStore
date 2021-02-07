@@ -10,7 +10,7 @@ import { ProductService } from '../product.service';
   templateUrl: './product-review.component.html',
   styleUrls: ['./product-review.component.css']
 })
-export class ProductReviewComponent implements OnInit, OnDestroy, AfterContentChecked {
+export class ProductReviewComponent implements OnDestroy, AfterContentChecked {
 
   @Input() product: IProduct;
   @Input() productReviewed: boolean;
@@ -25,9 +25,6 @@ export class ProductReviewComponent implements OnInit, OnDestroy, AfterContentCh
   deleteReviewSubscription: Subscription;
 
   constructor(private productService: ProductService, public authService: AuthService) { }
-
-  ngOnInit(): void {  
-  }
 
   ngAfterContentChecked(): void {
     if(this.productReviewCreated) {
